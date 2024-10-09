@@ -12,7 +12,7 @@ def marks(score):
 
 @app.route('/fail/<int:score>')
 def fail(score):
-    return 'Person is fail go and study'
+    return 'Person is fail go and'
 
 @app.route('/sucsess/<int:score>')
 def sucsess(score):
@@ -32,10 +32,10 @@ def result(score):
 def submmit():
     total_score=0
     if request.method=='POST':
-        Math = float(request.form['math'])
+        math = float(request.form['math'])
         science = float(request.form['science'])
-        Computer_science = float(request.form['cs'])
-        total_score=(Math+science+Computer_science)/3
+        computer_science = float(request.form['cs'])
+        total_score=(math+science+computer_science)/3
 
     res=''
     if total_score>=50:
@@ -44,8 +44,3 @@ def submmit():
         res='fail'
 
     return redirect(url_for(res,score=total_score))
-
-
-
-if __name__=='__main__':
-    app.run(debug=True)
